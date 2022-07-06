@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<body>
+  <script
+    src="https://js.crypto.com/sdk?publishable-key=pk_live_YLvEuz2nVgJ1RrdKira8uGvy">
+  </script>
+
+  <script>
+    cryptopay.Button({
+      createPayment: function(actions) {
+        return actions.payment.create({
+          currency: 'USD',
+          amount: 100,
+          description : 'Product Name',
+          order_id: 'sample-order-id',
+          metadata: {
+            
+          }
+        });
+      },
+      onApprove: function (data, actions) {
+        window.location.replace("http://www.google.com");// Optional: add logic such as browser redirection or check data object content
+      },
+      defaultLang: 'en-US' // Optional: default language for payment page
+    }).render("#pay-button")
+  </script>
+
+  <div id="pay-button"></div>
+</body>
+</html>
